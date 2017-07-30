@@ -4,3 +4,4 @@ open_apache_port:
     - ports:
       - 80/tcp
       - 443/tcp
+      - 22/tcp
