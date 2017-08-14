@@ -1,4 +1,4 @@
-{%- from "lamp/mysql/map.jinja" import mysql %}
+{%- from "wp/mysql/map.jinja" import mysql %}
 
 install_mysql:
   pkg.installed:

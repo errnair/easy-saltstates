@@ -1,4 +1,4 @@
-{% from "lamp/apache/map.jinja" import apache %}
+{% from "wp/apache/map.jinja" import apache %}
 
 install_apache:
   pkg.installed:

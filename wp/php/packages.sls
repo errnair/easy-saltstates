@@ -1,4 +1,4 @@
-{%- from "lamp/php/map.jinja" import php %}
+{%- from "wp/php/map.jinja" import php %}
 
 install_php:
   pkg.installed:
@@ -14,6 +14,6 @@ apache_restart:
 copy_info_file:
   file.recurse:
     - name: /var/www/html
-    - source: salt://lamp/php/files/
+    - source: salt://wp/php/files/
     - target: /home/{{ php.docroot  }}
     - makedirs: True
