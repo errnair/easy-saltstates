@@ -6,4 +6,5 @@ include:
   - wp.mysql.firewalld
   - wp.mysql.mysql_secure
   - wp.php.packages
-  - wp.wordpress.packages
+  - wp.wpcli.packages
+  - wp.wordpress.installwp
