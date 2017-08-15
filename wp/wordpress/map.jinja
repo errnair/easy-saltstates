@@ -1,0 +1,10 @@
+{%  set wordpress = salt['grains.filter_by']({
+    'Debian': {
+        'service': 'apache2',
+	    'docroot': '/var/www/html/',
+    },
+    'RedHat': {
+        'service': 'httpd',
+	    'docroot': '/var/www/html/',
+    }
+}) %}
