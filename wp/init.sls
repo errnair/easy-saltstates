@@ -7,4 +7,5 @@ include:
   - wp.mysql.mysql_secure
   - wp.php.packages
   - wp.wpcli.packages
+  - wp.wordpress.createdb
   - wp.wordpress.installwp
