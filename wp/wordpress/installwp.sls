@@ -23,13 +23,3 @@ core_wp:
   cmd.run:
     - cwd: /var/www/html/
     - name: 'wp core install --url="{{ wordpress.url }}" --title="{{ wordpress.name }}" --admin_user="{{ wp_adminuser }}" --admin_password="{{ wp_adminpass }}" --admin_email="{{ wp_adminmail }}" --allow-root'
-
-apache-reload:
-  module.wait:
-    - name: service.reload
-    - m_name: {{ apache.service }}
-
-apache-restart:
-  module.wait:
-    - name: service.restart
-    - m_name: {{ apache.service }}
