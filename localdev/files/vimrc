@@ -1,0 +1,25 @@
+set nocompatible
+set wildmenu
+set nowrap
+set autoindent
+set copyindent
+set backspace=indent,eol,start
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set hlsearch
+set incsearch
+set showmatch
+set ignorecase
+set smartcase
+set number
+set relativenumber
+set ruler
+set hidden
+set expandtab
+set exrc
+set secure
+set splitbelow
+
+syntax on
+filetype plugin indent on
