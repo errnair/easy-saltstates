@@ -3,3 +3,7 @@ common_packages:
     - pkgs:
       - wget
       - whois
+      - unzip
+      - curl
+      - tree
+      - htop
