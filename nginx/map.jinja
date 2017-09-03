@@ -1,0 +1,24 @@
+{% set  = salt['grains.filter_by']({
+    'Debian': {
+	'package': '',
+        'server': '',
+        'service': '',
+        'user': '',
+        'group': '',
+        'configfile': '',
+
+        'logdir': '',
+        'wwwdir': '',
+    },
+    'RedHat': {
+	'package': '',
+        'server': '',
+        'service': '',
+        'user': '',
+        'group': '',
+        'configfile': '',
+
+        'logdir': '',
+        'wwwdir': '',
+    },
+}) %} 
