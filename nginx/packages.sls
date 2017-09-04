@@ -1,8 +1,9 @@
-{% from "nginx/map.jinja" import nginx %}
+{% from "lemp/nginx/map.jinja" import nginx %}
 
 install_nginx:
   pkg.installed:
     - name: {{ nginx.package }}
+    - force_yes: True
   group.present:
     - name: {{ nginx.group }}
     - system: True
@@ -10,16 +11,15 @@ install_nginx:
     - name: {{ nginx.user }}
     - gid: {{ nginx.group }}
     - system: True
+
+reload-nginx:
   service.running:
     - name: {{ nginx.service }}
     - enable: True
+    - reload: True
+    - watch:
+      - module: nginx-config-test
 
-nginx-reload:
+nginx-config-test:
   module.wait:
-    - name: service.reload
-    - m_name: {{ nginx.service }}
-
-nginx-restart:
-  module.wait:
-    - name: service.restart
-    - m_name: {{ nginx.service }}
+    - name: nginx.configtest
