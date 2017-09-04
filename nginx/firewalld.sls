@@ -1,4 +1,4 @@
-open_nginx_port:
+open_nginx_ports:
   firewalld.present:
     - name: public
     - ports:
