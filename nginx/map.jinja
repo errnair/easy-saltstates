@@ -1,24 +1,24 @@
-{% set  = salt['grains.filter_by']({
+{% set nginx = salt['grains.filter_by']({
     'Debian': {
-	'package': '',
-        'server': '',
-        'service': '',
-        'user': '',
-        'group': '',
-        'configfile': '',
+	'package': 'nginx',
+        'service': 'nginx',
+        'user': 'www-data',
+        'group': 'www-data',
+        'configfile': '/etc/nginx/nginx.conf',
 
-        'logdir': '',
-        'wwwdir': '',
+        'logdir': '/var/log/nginx',
+        'wwwdir': '/var/www',
     },
+
     'RedHat': {
-	'package': '',
-        'server': '',
-        'service': '',
-        'user': '',
-        'group': '',
-        'configfile': '',
+	'package': 'nginx',
+        'service': 'nginx',
+        'user': 'nginx',
+        'group': 'nginx',
+        'configfile': '/etc/nginx/nginx.conf',
 
-        'logdir': '',
-        'wwwdir': '',
+        'logdir': '/var/log/nginx',
+        'wwwdir': '/var/www',
     },
+
 }) %} 
