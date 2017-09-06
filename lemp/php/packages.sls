@@ -13,10 +13,6 @@ php5-fpm-service:
     - require:
       - pkg: {{ php.service }}
 
-#nginx-restart:
-#  cmd.run:
-#    - name: systemctl restart nginx
-
 copy_info_file:
   file.managed:
     - name: /usr/share/nginx/html/info.php
