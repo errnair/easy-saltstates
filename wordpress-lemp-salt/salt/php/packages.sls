@@ -1,4 +1,4 @@
-{%- from "lemp/php/map.jinja" import php %}
+{%- from "wordpress-lemp-salt/php/map.jinja" import php %}
 
 install_php:
   pkg.installed:
@@ -20,7 +20,7 @@ php5-fpm-service:
 copy_info_file:
   file.managed:
     - name: /usr/share/nginx/html/info.php
-    - source: salt://lemp/php/files/info.php
+    - source: salt://wordpress-lemp-salt/php/files/info.php
     - makedirs: True
 
 php.ini-conf:
@@ -44,7 +44,7 @@ add-nginx-to-wwwdata:
 copy_default_conf:
   file.managed:
     - name: /etc/nginx/conf.d/default.conf
-    - source: salt://lemp/php/files/default.conf
+    - source: salt://wordpress-lemp-salt/php/files/default.conf
     - backup: minion
 
 
