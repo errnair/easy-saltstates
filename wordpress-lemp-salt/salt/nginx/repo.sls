@@ -1,4 +1,4 @@
-{% from "lemp/nginx/map.jinja" import nginx %}
+{% from "wordpress-lemp-salt/nginx/map.jinja" import nginx %}
 
 nginx-repo-deb:
   pkgrepo.managed:
