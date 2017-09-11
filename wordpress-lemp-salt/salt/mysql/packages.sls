@@ -1,4 +1,4 @@
-{%- from "lemp/mysql/map.jinja" import mysql %}
+{%- from "wordpress-lemp-salt/mysql/map.jinja" import mysql %}
 
 install_mysql:
   pkg.installed:

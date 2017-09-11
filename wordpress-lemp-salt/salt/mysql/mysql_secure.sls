@@ -1,4 +1,4 @@
-{% from "lemp/mysql/map.jinja" import mysql %}
+{% from "wordpress-lemp-salt/mysql/map.jinja" import mysql %}
 {% set mysql_root_pass = salt['pillar.get']('mysql:server:root_password', salt['grains.get']('server_id')) %}
 
 root_user:
