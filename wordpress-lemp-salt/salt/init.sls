@@ -8,4 +8,5 @@ include:
 #  - wordpress-lemp-salt.mysql.mysql_secure
 #  - wordpress-lemp-salt.php.packages
 #  - wordpress-lemp-salt.wp_user.create
-  - wordpress-lemp-salt.wp_user.configure
+#  - wordpress-lemp-salt.wp_user.configure
+  - wordpress-lemp-salt.wpcli.install
