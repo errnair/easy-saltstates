@@ -10,5 +10,5 @@ include:
   - wordpress-lemp-salt.wp_user.create
   - wordpress-lemp-salt.wp_user.configure
   - wordpress-lemp-salt.wpcli.install
-  - wordpress-lemp-salt.wordpress.install
   - wordpress-lemp-salt.wordpress.createdb
+  - wordpress-lemp-salt.wordpress.install
