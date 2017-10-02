@@ -1,4 +1,4 @@
-{%- from "wordpresser/php/map.jinja" import php %}
+{%- from "wordpress-lemp-salt/php/map.jinja" import php %}
 
 install_php:
   pkg.installed:
@@ -16,7 +16,7 @@ php-fpm-service:
 copy_info_file:
   file.managed:
     - name: /usr/share/nginx/html/info.php
-    - source: salt://wordpresser/php/files/info.php
+    - source: salt://wordpress-lemp-salt/php/files/info.php
     - makedirs: True
 
 php.ini-conf:
@@ -29,9 +29,9 @@ www.conf-listen.mode:
   file.managed:
     - name: {{ php.phpwww }}
     {% if grains['os_family'] == 'Debian' %}
-    - source: salt://wordpresser/php/files/www.conf_deb
+    - source: salt://wordpress-lemp-salt/php/files/www.conf_deb
     {% elif grains['os_family'] == 'RedHat' %}
-    - source: salt://wordpresser/php/files/www.conf_centos
+    - source: salt://wordpress-lemp-salt/php/files/www.conf_centos
     {% endif %}
 
 {% if grains['os_family'] == 'Debian' %}
@@ -44,7 +44,7 @@ add-nginx-to-wwwdata:
 copy_default_conf:
   file.managed:
     - name: /etc/nginx/conf.d/default.conf
-    - source: salt://wordpresser/php/files/default.conf
+    - source: salt://wordpress-lemp-salt/php/files/default.conf
     - backup: minion
 {% endif %}
 

@@ -1,12 +1,6 @@
 {%- from "wordpress-lemp-salt/wp_user/map.jinja" import wpuser %}
+{%- from "wordpress-lemp-salt/php/map.jinja" import php %}
 
-change-homdir-perm:
-  file.directory:
-    - name: /home/{{ wpuser.username }}
-    - user: {{ wpuser.username }}
-    - group: {{ wpuser.username }}
-    - mode: 711
-  
 create-nginx-available:
   file.directory:
     - name: /etc/nginx/sites-available
@@ -27,6 +21,7 @@ copy-nginx-conf:
     - context:
       domain: {{ wpuser.domain }}
       username: {{ wpuser.username }}
+      sockpath: {{ wpuser.sock }}
 
 symlink-nginx-enabled:
   file.symlink:
@@ -41,10 +36,29 @@ add-enabled-nginx-conf:
     - backup: True
     - after: "include /etc/nginx/conf.d/*.conf;"
 
-php5-fpm-restart:
-  cmd.run:
-    - name: systemctl restart php5-fpm
+change-file-dir-ownership:
+  file.directory:
+    - name: /home/{{ wpuser.username }}
+    - user: {{ wpuser.username }}
+    - group: {{ wpuser.username }}
+    - dir_mode: 755
+    - file_mode: 644
+    - recurse:
+      - user
+      - group
+      - mode
 
-nginx-restart:
+change-homdir-perm:
+  file.directory:
+    - name: /home/{{ wpuser.username }}
+    - user: {{ wpuser.username }}
+    - group: {{ wpuser.username }}
+    - mode: 711
+  
+php5_fpm_restart:
+  cmd.run:
+    - name: systemctl restart {{ php.service }}
+
+nginx_restart:
   cmd.run:
     - name: systemctl restart nginx 
